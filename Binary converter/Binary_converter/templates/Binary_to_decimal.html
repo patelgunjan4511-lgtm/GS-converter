@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Decimal to Binary Converter</title>
+</head>
+<body>
+
+    
+    <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Binary to Decimal Converter</title>
+
+    <style>
+        /* --- General Reset & Variables --- */
+        :root {
+            --primary-color: #4A90E2;
+            --secondary-color: #2C3E50;
+            --background-color: #ECF0F1;
+            --card-bg: #FFFFFF;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: var(--background-color);
+            font-family: 'Inter', sans-serif;
+            color: var(--secondary-color);
+        }
+
+        /* --- Title Styling --- */
+    .top-left-title {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        margin: 0;
+        padding: 12px 24px;
+        background-color: var(--primary-color);
+        color: var(--card-bg);
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 18px;
+        letter-spacing: 1px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+    }
+
+        /* --- Converter Card --- */
+        .converter-container {
+            padding: 40px;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            min-width: 300px;
+        }
+
+        .converter-label {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        /* --- Input Field --- */
+        input[type="text"] {
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+            border-color: #357ABD;
+        }
+
+        /* --- Button Styling --- */
+        input[type="submit"] {
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #357ABD;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+        }
+
+        /* --- Result Styling --- */
+.result-box {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #E8F4FD;
+    border-left: 5px solid var(--primary-color);
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--secondary-color);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.2);
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+        .back-arrow {
+    position: fixed;
+    top: 100px;   /* moved downward about 4 cm */
+    left: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    background-color: #2C3E50;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 35%;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: 0.3s ease;
+}
+
+.back-arrow:hover {
+    background-color: #1A252F;
+    transform: scale(1.1);
+}
+
+/* --- Select Dropdown --- */
+        .select-container {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        /* --- Responsive Breakpoints --- */
+        @media (max-width: 768px) {
+            .converter-container {
+                padding: 30px;
+            }
+
+            .top-left-title {
+                font-size: 16px;
+                padding: 12px 24px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1 class="top-left-title">GS-CONVERTER</h1>
+
+    <div class="converter-container">
+        <form method="post" action="{% url 'Binary_to_decimal' %}">
+            {% csrf_token %}
+            <label class="converter-label" for="binary">
+                Enter a binary number:
+            </label>
+            <input type="text" id="binary" name="binary" pattern="[01]+" required>
+            <input type="submit" value="Convert">
+
+            {% if decimal %}
+                <div class="result-box">
+                 Decimal Value: {{ decimal }}
+                 </div>
+            {% endif %}
+
+            <a href="{% url 'home' %}" class="back-arrow">←</a>
+
+        </form>
+        <h1>
+            
+    </div>
+
+</body>
+</html>
+
+
+</body>
+</html>
